@@ -14,7 +14,7 @@ namespace MssqlServer.Tests
     [TestClass()]
     public class ConnectorTests
     {
-        private string connectionString = "Server=DESKTOP-NL0AL66\\SQLSERVER;Database=Negocios2022;User ID=sa;Password=password;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
+        private string connectionString = "Server=localhost;Database=schema;User ID=sa;Password=password;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
 
         [TestMethod()]
         public void GetConnectionTest()
