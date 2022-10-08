@@ -354,19 +354,19 @@ namespace EmilimaV2Web.Models
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 
                 entity.HasOne(d => d.Photo)
-                    .WithMany(p => p.User1s)
+                    .WithMany(p => p.Users)
                     .HasForeignKey(d => d.PhotoId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("user$fk_user_file");
 
                 entity.HasOne(d => d.Position)
-                    .WithMany(p => p.User1s)
+                    .WithMany(p => p.Users)
                     .HasForeignKey(d => d.PositionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("user$fk_user_user_position");
 
                 entity.HasOne(d => d.Role)
-                    .WithMany(p => p.User1s)
+                    .WithMany(p => p.Users)
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("user$fk_user_user_role");

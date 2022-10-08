@@ -8,13 +8,13 @@ namespace EmilimaV2Web.Models
         public File()
         {
             Documents = new HashSet<Document>();
-            User1s = new HashSet<User>();
+            Users = new HashSet<User>();
         }
 
         public string Id { get; set; } = null!;
         public string Filename { get; set; } = null!;
 
         public virtual ICollection<Document> Documents { get; set; }
-        public virtual ICollection<User> User1s { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

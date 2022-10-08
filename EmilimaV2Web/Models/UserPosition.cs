@@ -7,7 +7,7 @@ namespace EmilimaV2Web.Models
     {
         public UserPosition()
         {
-            User1s = new HashSet<User>();
+            Users = new HashSet<User>();
         }
 
         public int Id { get; set; }
@@ -17,6 +17,6 @@ namespace EmilimaV2Web.Models
 
         public virtual HierarchicalDependency HierarchicalDependency { get; set; } = null!;
         public virtual OrganicUnit OrganicUnit { get; set; } = null!;
-        public virtual ICollection<User> User1s { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

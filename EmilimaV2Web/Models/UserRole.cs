@@ -7,13 +7,13 @@ namespace EmilimaV2Web.Models
     {
         public UserRole()
         {
-            User1s = new HashSet<User>();
+            Users = new HashSet<User>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
 
-        public virtual ICollection<User> User1s { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }
