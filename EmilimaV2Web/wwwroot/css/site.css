@@ -1,18 +1,53 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #F7F7F7;
+}
+
+.body--login {
+    background-image: linear-gradient(rgba(0, 75, 138, .7) 50%, rgba(0, 75, 138, .7) 50%), url('../img/login-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.documents-list__item__edit-button,
+.documents-list__item__delete-button,
+.documents-list__item__download-button {
+    cursor: pointer;
+}
+
+.appears-in-top-center {
+    position: absolute;
+    z-index: 99999;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#user-photo {
+    object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+    .body--login {
+        height: 100vh;
+    }
 }
