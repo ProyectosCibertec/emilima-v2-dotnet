@@ -7,13 +7,18 @@ namespace EmilimaV2Web.Models
 {
     public partial class emilimaContext : DbContext
     {
-        public emilimaContext()
+        private readonly IConfiguration _configuration;
+
+        public emilimaContext(IConfiguration configuration)
         {
+            _configuration = configuration;
         }
 
-        public emilimaContext(DbContextOptions<emilimaContext> options)
+        public emilimaContext(DbContextOptions<emilimaContext> options,
+            IConfiguration configuration)
             : base(options)
         {
+            _configuration = configuration;
         }
 
         public virtual DbSet<Document> Documents { get; set; } = null!;
@@ -34,7 +39,7 @@ namespace EmilimaV2Web.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Name=ConnectionString:Connection");
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("Connection"));
             }
         }
 
