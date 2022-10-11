@@ -13,7 +13,7 @@ Create a `.\EmilimaV2Web\appsettings.Development.json` file to provide your own 
 ``` json
 {
   "ConnectionStrings": {
-    "Connection": "Data Source = {Your server}; Initial Catalog = {Your database}; User Id = {Your username}; Password = {Your password};"
+    "Connection": "Data Source = {Your server}; Initial Catalog = {Your database}; User Id = {Your username}; Password = {Your password}; Encrypt=False; TrustServerCertificate=True;"
   }
 }
 ```
