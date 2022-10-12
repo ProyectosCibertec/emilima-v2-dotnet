@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmilimaV2Web", "EmilimaV2Web\EmilimaV2Web.csproj", "{94093863-6697-45B9-AC8E-488DFEE2669A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmilimaV2Web", "EmilimaV2Web\EmilimaV2Web.csproj", "{94093863-6697-45B9-AC8E-488DFEE2669A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MssqlServer", "MssqlServer\MssqlServer.csproj", "{3E7DB3FE-0D46-4535-934D-5630A9B46238}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MssqlServer", "MssqlServer\MssqlServer.csproj", "{3E7DB3FE-0D46-4535-934D-5630A9B46238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MssqlServerTests", "MssqlServerTests\MssqlServerTests.csproj", "{41D93EE3-4A47-47ED-9CED-85F6EF623303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MssqlServerTests", "MssqlServerTests\MssqlServerTests.csproj", "{41D93EE3-4A47-47ED-9CED-85F6EF623303}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
