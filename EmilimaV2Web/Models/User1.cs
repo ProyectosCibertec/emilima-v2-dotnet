@@ -20,19 +20,25 @@ namespace EmilimaV2Web.Models
         [Key]
         [Column("username")]
         [StringLength(45)]
+        [Display(Name = "Nombre de Usuario")]
         public string Username { get; set; } = null!;
         [Column("password")]
         [StringLength(45)]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; } = null!;
         [Column("email")]
         [StringLength(100)]
+        [Display(Name = "Email")]
         public string Email { get; set; } = null!;
         [Column("role_id")]
+        [Display(Name = "Rol")]
         public int RoleId { get; set; }
         [Column("photo_id")]
         [StringLength(48)]
+        [Display(Name = "Foto")]
         public string PhotoId { get; set; } = null!;
         [Column("position_id")]
+        [Display(Name = "Posición")]
         public int PositionId { get; set; }
 
         [ForeignKey("PhotoId")]

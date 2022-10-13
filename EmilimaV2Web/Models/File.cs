@@ -18,8 +18,10 @@ namespace EmilimaV2Web.Models
         [Key]
         [Column("id")]
         [StringLength(48)]
+        [Display(Name = "Id")]
         public string Id { get; set; } = null!;
         [Column("filename")]
+        [Display(Name = "Archivo")]
         public string Filename { get; set; } = null!;
 
         [InverseProperty("File")]

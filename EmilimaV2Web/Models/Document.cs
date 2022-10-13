@@ -16,27 +16,36 @@ namespace EmilimaV2Web.Models
     {
         [Key]
         [Column("serial_number")]
+        [Display(Name = "Número Serial")]
         public int SerialNumber { get; set; }
         [Column("name")]
         [StringLength(45)]
+        [Display(Name = "Nombre")]
         public string Name { get; set; } = null!;
         [Column("description")]
+        [Display(Name = "Descripción")]
         public string? Description { get; set; }
         [Column("upload_date")]
         [Precision(0)]
+        [Display(Name = "Subida")]
         public DateTime? UploadDate { get; set; }
         [Column("creation_date")]
         [Precision(0)]
+        [Display(Name = "Creación")]
         public DateTime? CreationDate { get; set; }
         [Column("file_id")]
         [StringLength(48)]
+        [Display(Name = "Archivo")]
         public string FileId { get; set; } = null!;
         [Column("document_type_id")]
+        [Display(Name = "Tipo")]
         public int DocumentTypeId { get; set; }
         [Column("document_serie_id")]
         [StringLength(6)]
+        [Display(Name = "Serie")]
         public string DocumentSerieId { get; set; } = null!;
         [Column("document_request_id")]
+        [Display(Name = "Solicitud")]
         public int? DocumentRequestId { get; set; }
 
         [ForeignKey("DocumentRequestId")]

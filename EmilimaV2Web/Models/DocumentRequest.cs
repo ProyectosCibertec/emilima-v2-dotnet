@@ -19,21 +19,28 @@ namespace EmilimaV2Web.Models
 
         [Key]
         [Column("id")]
+        [Display(Name = "Id")]
         public int Id { get; set; }
         [Column("name")]
         [StringLength(45)]
+        [Display(Name = "Nombre")]
         public string Name { get; set; } = null!;
         [Column("description")]
+        [Display(Name = "Descripción")]
         public string Description { get; set; } = null!;
         [Column("creation_date")]
         [Precision(0)]
+        [Display(Name = "Creación")]
         public DateTime? CreationDate { get; set; }
         [Column("state_id")]
+        [Display(Name = "Estado")]
         public int StateId { get; set; }
         [Column("user_id")]
         [StringLength(45)]
+        [Display(Name = "Usuario Creador")]
         public string UserId { get; set; } = null!;
         [Column("organic_unit_id")]
+        [Display(Name = "Unidad Orgánica")]
         public int OrganicUnitId { get; set; }
 
         [ForeignKey("OrganicUnitId")]

@@ -17,9 +17,11 @@ namespace EmilimaV2Web.Models
 
         [Key]
         [Column("id")]
+        [Display(Name = "Id")]
         public int Id { get; set; }
         [Column("name")]
         [StringLength(45)]
+        [Display(Name = "Nombre")]
         public string Name { get; set; } = null!;
 
         [InverseProperty("State")]

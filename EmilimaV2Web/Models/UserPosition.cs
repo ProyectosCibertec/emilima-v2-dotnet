@@ -19,13 +19,17 @@ namespace EmilimaV2Web.Models
 
         [Key]
         [Column("id")]
+        [Display(Name = "Id")]
         public int Id { get; set; }
         [Column("name")]
         [StringLength(200)]
+        [Display(Name = "Nombre")]
         public string Name { get; set; } = null!;
         [Column("organic_unit_id")]
+        [Display(Name = "Unidad Orgánica")]
         public int OrganicUnitId { get; set; }
         [Column("hierarchical_dependency_id")]
+        [Display(Name = "Dependencia Jerárquica")]
         public int HierarchicalDependencyId { get; set; }
 
         [ForeignKey("HierarchicalDependencyId")]
