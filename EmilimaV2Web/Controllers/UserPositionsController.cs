@@ -11,9 +11,9 @@ namespace EmilimaV2Web.Controllers
 {
     public class UserPositionsController : Controller
     {
-        private readonly emilimaContext _context;
+        private readonly EmilimaContext _context;
 
-        public UserPositionsController(emilimaContext context)
+        public UserPositionsController(EmilimaContext context)
         {
             _context = context;
         }

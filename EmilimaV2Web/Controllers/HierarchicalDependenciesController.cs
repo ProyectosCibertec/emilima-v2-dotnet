@@ -11,9 +11,9 @@ namespace EmilimaV2Web.Controllers
 {
     public class HierarchicalDependenciesController : Controller
     {
-        private readonly emilimaContext _context;
+        private readonly EmilimaContext _context;
 
-        public HierarchicalDependenciesController(emilimaContext context)
+        public HierarchicalDependenciesController(EmilimaContext context)
         {
             _context = context;
         }

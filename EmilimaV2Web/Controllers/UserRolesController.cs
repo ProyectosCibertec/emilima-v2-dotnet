@@ -11,9 +11,9 @@ namespace EmilimaV2Web.Controllers
 {
     public class UserRolesController : Controller
     {
-        private readonly emilimaContext _context;
+        private readonly EmilimaContext _context;
 
-        public UserRolesController(emilimaContext context)
+        public UserRolesController(EmilimaContext context)
         {
             _context = context;
         }

@@ -11,9 +11,9 @@ namespace EmilimaV2Web.Controllers
 {
     public class OrganicUnitsController : Controller
     {
-        private readonly emilimaContext _context;
+        private readonly EmilimaContext _context;
 
-        public OrganicUnitsController(emilimaContext context)
+        public OrganicUnitsController(EmilimaContext context)
         {
             _context = context;
         }

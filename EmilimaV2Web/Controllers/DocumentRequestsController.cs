@@ -11,9 +11,9 @@ namespace EmilimaV2Web.Controllers
 {
     public class DocumentRequestsController : Controller
     {
-        private readonly emilimaContext _context;
+        private readonly EmilimaContext _context;
 
-        public DocumentRequestsController(emilimaContext context)
+        public DocumentRequestsController(EmilimaContext context)
         {
             _context = context;
         }

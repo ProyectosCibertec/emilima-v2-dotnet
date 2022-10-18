@@ -11,9 +11,9 @@ namespace EmilimaV2Web.Controllers
 {
     public class DocumentTypesController : Controller
     {
-        private readonly emilimaContext _context;
+        private readonly EmilimaContext _context;
 
-        public DocumentTypesController(emilimaContext context)
+        public DocumentTypesController(EmilimaContext context)
         {
             _context = context;
         }

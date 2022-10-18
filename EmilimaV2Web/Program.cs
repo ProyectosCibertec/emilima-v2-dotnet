@@ -1,11 +1,13 @@
 using EmilimaV2Web.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("Connection");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<emilimaContext>();
+builder.Services.AddDbContext<EmilimaContext>();
 
 var app = builder.Build();
 

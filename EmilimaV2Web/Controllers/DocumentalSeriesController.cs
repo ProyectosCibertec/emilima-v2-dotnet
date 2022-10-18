@@ -11,9 +11,9 @@ namespace EmilimaV2Web.Controllers
 {
     public class DocumentalSeriesController : Controller
     {
-        private readonly emilimaContext _context;
+        private readonly EmilimaContext _context;
 
-        public DocumentalSeriesController(emilimaContext context)
+        public DocumentalSeriesController(EmilimaContext context)
         {
             _context = context;
         }
