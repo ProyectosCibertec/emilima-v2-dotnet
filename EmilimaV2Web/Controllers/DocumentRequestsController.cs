@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmilimaV2Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmilimaV2Web.Controllers
 {
+    [Authorize]
     public class DocumentRequestsController : Controller
     {
         private readonly EmilimaContext _context;
@@ -51,7 +53,7 @@ namespace EmilimaV2Web.Controllers
         {
             ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id");
             ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Id");
-            ViewData["UserId"] = new SelectList(_context.Users1, "Username", "Username");
+            ViewData["UserId"] = new SelectList(_context.Users, "Username", "Username");
             return View();
         }
 
@@ -70,7 +72,7 @@ namespace EmilimaV2Web.Controllers
             }
             ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id", documentRequest.OrganicUnitId);
             ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Id", documentRequest.StateId);
-            ViewData["UserId"] = new SelectList(_context.Users1, "Username", "Username", documentRequest.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Username", "Username", documentRequest.UserId);
             return View(documentRequest);
         }
 
@@ -89,7 +91,7 @@ namespace EmilimaV2Web.Controllers
             }
             ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id", documentRequest.OrganicUnitId);
             ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Id", documentRequest.StateId);
-            ViewData["UserId"] = new SelectList(_context.Users1, "Username", "Username", documentRequest.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Username", "Username", documentRequest.UserId);
             return View(documentRequest);
         }
 
@@ -127,7 +129,7 @@ namespace EmilimaV2Web.Controllers
             }
             ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id", documentRequest.OrganicUnitId);
             ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Id", documentRequest.StateId);
-            ViewData["UserId"] = new SelectList(_context.Users1, "Username", "Username", documentRequest.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Username", "Username", documentRequest.UserId);
             return View(documentRequest);
         }
 
@@ -159,7 +161,7 @@ namespace EmilimaV2Web.Controllers
         {
             if (_context.DocumentRequests == null)
             {
-                return Problem("Entity set 'emilimaContext.DocumentRequests'  is null.");
+                return Problem("Entity set 'EmilimaContext.DocumentRequests'  is null.");
             }
             var documentRequest = await _context.DocumentRequests.FindAsync(id);
             if (documentRequest != null)
