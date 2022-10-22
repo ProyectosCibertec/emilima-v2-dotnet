@@ -30,14 +30,14 @@
 						class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
 						id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img alt="" width="32" height="32" class="rounded-circle me-2"
-							id="user-photo"> <strong>${ sessionScope.loginedUser.username }</strong>
+							id="user-photo"> <strong>User</strong>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
 						aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item"
 							href="~/cuenta">Configuración</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><button class="dropdown-item" id="logout-button">Salir</button></li>
+                        <li><a class="dropdown-item" aria-current="page" asp-area="" asp-controller="Logout" asp-action="Index">Salir</a></li>
                     </ul>
                 </div>
             </div>

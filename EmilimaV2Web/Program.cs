@@ -1,34 +1,26 @@
 using EmilimaV2Web.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAuthentication(o =>
-{
-    o.DefaultScheme = IdentityConstants.ApplicationScheme;
-    o.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-})
-.AddIdentityCookies(o => { });
-
 // Add services to the container.
+builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(o =>
+    {
+        o.ExpireTimeSpan = TimeSpan.FromDays(1);
+        o.SlidingExpiration = true;
+        o.AccessDeniedPath = "/Error/Error403";
+        o.LoginPath = "/Login/";
+        o.LogoutPath = "/Logout/";
+    });
+
 builder.Services.AddDbContext<EmilimaContext>();
-
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    // Cookie settings
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-
-    options.LoginPath = "/Login";
-    options.LogoutPath = "/Logout";
-    options.ReturnUrlParameter = "/Home";
-    options.AccessDeniedPath = "/Error/Error403";
-    options.SlidingExpiration = true;
-});
 
 var app = builder.Build();
 
@@ -48,8 +40,11 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapRazorPages();
+app.MapDefaultControllerRoute();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
