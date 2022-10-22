@@ -33,13 +33,9 @@ public partial class EmilimaContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<User1> Users1 { get; set; }
-
     public virtual DbSet<UserPosition> UserPositions { get; set; }
 
     public virtual DbSet<UserRole> UserRoles { get; set; }
-
-    public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=ConnectionString:Connection");
@@ -139,26 +135,19 @@ public partial class EmilimaContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.Property(e => e.Password).IsFixedLength();
-            entity.Property(e => e.PhotoId).IsFixedLength();
-            entity.Property(e => e.Username).IsFixedLength();
-        });
-
-        modelBuilder.Entity<User1>(entity =>
-        {
             entity.HasKey(e => e.Username).HasName("PK_user_username");
 
             entity.Property(e => e.PhotoId).HasDefaultValueSql("(N'c4042c2a-f106-11ec-8ea0-0242ac120002')");
 
-            entity.HasOne(d => d.Photo).WithMany(p => p.User1s)
+            entity.HasOne(d => d.Photo).WithMany(p => p.Users)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("user$fk_user_file");
 
-            entity.HasOne(d => d.Position).WithMany(p => p.User1s)
+            entity.HasOne(d => d.Position).WithMany(p => p.Users)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("user$fk_user_user_position");
 
-            entity.HasOne(d => d.Role).WithMany(p => p.User1s)
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("user$fk_user_user_role");
         });
@@ -181,13 +170,6 @@ public partial class EmilimaContext : DbContext
         modelBuilder.Entity<UserRole>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_user_role_id");
-        });
-
-        modelBuilder.Entity<Usuario>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK_usuario_id");
-
-            entity.Property(e => e.Id).ValueGeneratedNever();
         });
 
         OnModelCreatingPartial(modelBuilder);

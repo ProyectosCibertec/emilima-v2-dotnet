@@ -9,44 +9,44 @@ using EmilimaV2Web.Models;
 
 namespace EmilimaV2Web.Controllers
 {
-    public class User1Controller : Controller
+    public class UsersController : Controller
     {
         private readonly EmilimaContext _context;
 
-        public User1Controller(EmilimaContext context)
+        public UsersController(EmilimaContext context)
         {
             _context = context;
         }
 
-        // GET: User1
+        // GET: Users
         public async Task<IActionResult> Index()
         {
-            var emilimaContext = _context.Users1.Include(u => u.Photo).Include(u => u.Position).Include(u => u.Role);
+            var emilimaContext = _context.Users.Include(u => u.Photo).Include(u => u.Position).Include(u => u.Role);
             return View(await emilimaContext.ToListAsync());
         }
 
-        // GET: User1/Details/5
+        // GET: Users/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null || _context.Users1 == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var user1 = await _context.Users1
+            var user = await _context.Users
                 .Include(u => u.Photo)
                 .Include(u => u.Position)
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(m => m.Username == id);
-            if (user1 == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(user1);
+            return View(user);
         }
 
-        // GET: User1/Create
+        // GET: Users/Create
         public IActionResult Create()
         {
             ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id");
@@ -55,52 +55,52 @@ namespace EmilimaV2Web.Controllers
             return View();
         }
 
-        // POST: User1/Create
+        // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Username,Password,Email,RoleId,PhotoId,PositionId")] User1 user1)
+        public async Task<IActionResult> Create([Bind("Username,Password,Email,RoleId,PhotoId,PositionId")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user1);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id", user1.PhotoId);
-            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id", user1.PositionId);
-            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id", user1.RoleId);
-            return View(user1);
+            ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id", user.PhotoId);
+            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id", user.PositionId);
+            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id", user.RoleId);
+            return View(user);
         }
 
-        // GET: User1/Edit/5
+        // GET: Users/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null || _context.Users1 == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var user1 = await _context.Users1.FindAsync(id);
-            if (user1 == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id", user1.PhotoId);
-            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id", user1.PositionId);
-            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id", user1.RoleId);
-            return View(user1);
+            ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id", user.PhotoId);
+            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id", user.PositionId);
+            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id", user.RoleId);
+            return View(user);
         }
 
-        // POST: User1/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Username,Password,Email,RoleId,PhotoId,PositionId")] User1 user1)
+        public async Task<IActionResult> Edit(string id, [Bind("Username,Password,Email,RoleId,PhotoId,PositionId")] User user)
         {
-            if (id != user1.Username)
+            if (id != user.Username)
             {
                 return NotFound();
             }
@@ -109,12 +109,12 @@ namespace EmilimaV2Web.Controllers
             {
                 try
                 {
-                    _context.Update(user1);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!User1Exists(user1.Username))
+                    if (!UserExists(user.Username))
                     {
                         return NotFound();
                     }
@@ -125,55 +125,55 @@ namespace EmilimaV2Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id", user1.PhotoId);
-            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id", user1.PositionId);
-            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id", user1.RoleId);
-            return View(user1);
+            ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id", user.PhotoId);
+            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id", user.PositionId);
+            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id", user.RoleId);
+            return View(user);
         }
 
-        // GET: User1/Delete/5
+        // GET: Users/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null || _context.Users1 == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var user1 = await _context.Users1
+            var user = await _context.Users
                 .Include(u => u.Photo)
                 .Include(u => u.Position)
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(m => m.Username == id);
-            if (user1 == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(user1);
+            return View(user);
         }
 
-        // POST: User1/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.Users1 == null)
+            if (_context.Users == null)
             {
-                return Problem("Entity set 'emilimaContext.Users1'  is null.");
+                return Problem("Entity set 'EmilimaContext.Users'  is null.");
             }
-            var user1 = await _context.Users1.FindAsync(id);
-            if (user1 != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.Users1.Remove(user1);
+                _context.Users.Remove(user);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool User1Exists(string id)
+        private bool UserExists(string id)
         {
-          return _context.Users1.Any(e => e.Username == id);
+          return _context.Users.Any(e => e.Username == id);
         }
     }
 }

@@ -22,5 +22,5 @@ public partial class UserRole
     public string? Description { get; set; }
 
     [InverseProperty("Role")]
-    public virtual ICollection<User1> User1s { get; } = new List<User1>();
+    public virtual ICollection<User> Users { get; } = new List<User>();
 }

@@ -50,5 +50,5 @@ public partial class DocumentRequest
 
     [ForeignKey("UserId")]
     [InverseProperty("DocumentRequests")]
-    public virtual User1 User { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
 }

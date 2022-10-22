@@ -35,5 +35,5 @@ public partial class UserPosition
     public virtual OrganicUnit OrganicUnit { get; set; } = null!;
 
     [InverseProperty("Position")]
-    public virtual ICollection<User1> User1s { get; } = new List<User1>();
+    public virtual ICollection<User> Users { get; } = new List<User>();
 }
