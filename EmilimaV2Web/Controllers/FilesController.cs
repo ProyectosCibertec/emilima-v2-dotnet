@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmilimaV2Web.Models;
 using File = EmilimaV2Web.Models.File;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmilimaV2Web.Controllers
 {
+    [Authorize]
     public class FilesController : Controller
     {
         private readonly EmilimaContext _context;

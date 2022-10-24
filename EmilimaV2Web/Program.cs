@@ -1,8 +1,5 @@
 using EmilimaV2Web.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,12 +12,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         o.ExpireTimeSpan = TimeSpan.FromDays(1);
         o.SlidingExpiration = true;
-        o.AccessDeniedPath = "/Error/Error403";
+        o.AccessDeniedPath = "/Error/Error401";
         o.LoginPath = "/Login/";
         o.LogoutPath = "/Logout/";
     });
 
 builder.Services.AddDbContext<EmilimaContext>();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -39,6 +37,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseStatusCodePagesWithReExecute("/Error/Error404");
 
 app.MapRazorPages();
 app.MapDefaultControllerRoute();
