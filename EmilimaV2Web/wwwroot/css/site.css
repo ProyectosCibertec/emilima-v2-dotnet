@@ -50,4 +50,8 @@ body {
     .body--login {
         height: 100vh;
     }
+
+    .main-content {
+        height: 100vh;
+    }
 }

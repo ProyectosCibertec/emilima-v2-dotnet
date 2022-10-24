@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EmilimaV2Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrador")]
     public class UsersController : Controller
     {
         private readonly EmilimaContext _context;
@@ -64,7 +64,7 @@ namespace EmilimaV2Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Username,Password,Email,RoleId,PhotoId,PositionId")] User user)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(user);
                 await _context.SaveChangesAsync();
@@ -107,7 +107,7 @@ namespace EmilimaV2Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
