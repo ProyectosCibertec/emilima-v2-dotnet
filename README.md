@@ -13,7 +13,16 @@ Create a `.\EmilimaV2Web\appsettings.Development.json` file to provide your own 
 ``` json
 {
   "ConnectionStrings": {
-    "Connection": "Data Source = {Your server}; Initial Catalog = {Your database}; User Id = {Your username}; Password = {Your password}; Encrypt=False; TrustServerCertificate=True;"
+    "Connection": "Data Source = <Your server>; Initial Catalog = <Your database>; User Id = <Your username>; Password = <Your password>; Encrypt=False; TrustServerCertificate=True;"
   }
 }
 ```
+## Glossary
+
+| parameter | example 1| example 2 | example 3|
+|:---: | :---: | :---:| :---:|
+| Your server | (local)| . | DESKTOP-S13BTFH\\SQLSERVER |
+| Your database | emilima|
+| Your username | sa |
+| Your password | 123 | sql |
+
