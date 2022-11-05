@@ -15,17 +15,21 @@ public partial class User
     [Key]
     [Column("username")]
     [StringLength(45)]
+    [Display(Name = "Usuario")]
     public string Username { get; set; } = null!;
 
     [Column("password")]
     [StringLength(45)]
+    [Display(Name = "Contraseña")]
     public string Password { get; set; } = null!;
 
     [Column("email")]
     [StringLength(100)]
+    [Display(Name = "Email")]
     public string Email { get; set; } = null!;
 
     [Column("role_id")]
+    [Display(Name = "Rol")]
     public int RoleId { get; set; }
 
     [Column("photo_id")]
@@ -33,6 +37,7 @@ public partial class User
     public string PhotoId { get; set; } = null!;
 
     [Column("position_id")]
+    [Display(Name = "Posición")]
     public int PositionId { get; set; }
 
     [InverseProperty("User")]
@@ -44,9 +49,11 @@ public partial class User
 
     [ForeignKey("PositionId")]
     [InverseProperty("Users")]
+    [Display(Name = "Posición")]
     public virtual UserPosition Position { get; set; } = null!;
 
     [ForeignKey("RoleId")]
     [InverseProperty("Users")]
+    [Display(Name = "Rol")]
     public virtual UserRole Role { get; set; } = null!;
 }

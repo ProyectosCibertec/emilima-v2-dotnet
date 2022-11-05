@@ -52,8 +52,8 @@ namespace EmilimaV2Web.Controllers
         public IActionResult Create()
         {
             ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id");
-            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id");
-            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id");
+            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Name");
+            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Name");
             return View();
         }
 
@@ -90,8 +90,8 @@ namespace EmilimaV2Web.Controllers
                 return NotFound();
             }
             ViewData["PhotoId"] = new SelectList(_context.Files, "Id", "Id", user.PhotoId);
-            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Id", user.PositionId);
-            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Id", user.RoleId);
+            ViewData["PositionId"] = new SelectList(_context.UserPositions, "Id", "Name", user.PositionId);
+            ViewData["RoleId"] = new SelectList(_context.UserRoles, "Id", "Name", user.RoleId);
             return View(user);
         }
 

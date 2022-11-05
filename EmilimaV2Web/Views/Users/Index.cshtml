@@ -15,9 +15,6 @@
             <th data-field="Username" data-sortable="true" class="px-2">
                 @Html.DisplayNameFor(model => model.Username)
             </th>
-            <th data-field="Password" data-sortable="true" class="px-2">
-                @Html.DisplayNameFor(model => model.Password)
-            </th>
             <th data-field="Email" data-sortable="true" class="px-2">
                 @Html.DisplayNameFor(model => model.Email)
             </th>
@@ -40,19 +37,16 @@
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RoleId)
+                @Html.DisplayFor(modelItem => item.Role.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PhotoId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PositionId)
+                @Html.DisplayFor(modelItem => item.Position.Name)
             </td>
             <td>
                 <div class="d-flex justify-content-around align-items-stretch">

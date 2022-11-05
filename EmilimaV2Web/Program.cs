@@ -1,5 +1,6 @@
 using EmilimaV2Web.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         o.LogoutPath = "/Logout/";
     });
 
-builder.Services.AddDbContext<EmilimaContext>();
+builder.Services.AddDbContext<EmilimaContext>(o =>
+{
+    o.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+});
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();

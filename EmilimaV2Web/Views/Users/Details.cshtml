@@ -1,0 +1,49 @@
+﻿@model EmilimaV2Web.Models.User
+
+@{
+    ViewData["Title"] = "Detalle";
+}
+
+<h1>Detalle</h1>
+
+<div>
+    <div>
+        <a asp-action="Index"><i class="bi bi-arrow-left-square-fill h3"></i></a>
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Photo.Filename)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Position.Name)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Role.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Username">Editar</a>
+</div>
