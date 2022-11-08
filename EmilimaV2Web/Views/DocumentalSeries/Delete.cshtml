@@ -1,0 +1,94 @@
+﻿@model EmilimaV2Web.Models.DocumentalSerie
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+        <h1>Eliminar</h1>
+
+<h3>Estás seguro que deseas eliminar este item?</h3>
+<div>
+    <div>
+        <a asp-action="Index"><i class="bi bi-arrow-left-square-fill h3"></i></a>
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Definition)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Definition)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.ServiceFrequency)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.ServiceFrequency)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.NormativeScope)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.NormativeScope)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.IsPublic)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.IsPublic)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.PhisicalFeatures)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.PhisicalFeatures)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.DocumentalSerieValue)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.DocumentalSerieValue)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.YearsInManagementArchive)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.YearsInManagementArchive)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.YearsInCentralArchive)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.YearsInCentralArchive)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.ElaborationDate)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.ElaborationDate)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.HierarchicalDependency)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.HierarchicalDependency.Name)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.OrganicUnit)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.OrganicUnit.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Code" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+    </form>
+</div>

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<EmilimaV2Web.Models.DocumentalSerie>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Lista</h1>
+
+<p>
+    <a asp-action="Create" role="button" class="btn btn-success">Registrar</a>
+</p>
+    <table class="table" data-toggle="table" data-pagination="true" data-sort-order="asc" data-show-extended-pagination="true">
+    <thead>
+        <tr>
+            <th data-field="Code" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th data-field="Name" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th data-field="HierarchicalDependencyId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.HierarchicalDependencyId)
+            </th>
+            <th data-field="OrganicUnitId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.OrganicUnitId)
+            </th>
+            <th data-field="Definition" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Definition)
+            </th>
+            <th data-field="ServiceFrequency" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.ServiceFrequency)
+            </th>
+            <th data-field="NormativeScope" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.NormativeScope)
+            </th>
+            <th data-field="IsPublic" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.IsPublic)
+            </th>
+            <th data-field="PhisicalFeatures" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.PhisicalFeatures)
+            </th>
+            <th data-field="DocumentalSerieValue" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.DocumentalSerieValue)
+            </th>
+            <th data-field="YearsInManagementArchive" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.YearsInManagementArchive)
+            </th>
+            <th data-field="YearsInCentralArchive" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.YearsInCentralArchive)
+            </th>
+            <th data-field="ElaborationDate" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.ElaborationDate)
+            </th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HierarchicalDependency.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganicUnit.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Definition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceFrequency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NormativeScope)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPublic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhisicalFeatures)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentalSerieValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsInManagementArchive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearsInCentralArchive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElaborationDate)
+            </td>
+            <td>
+                <div class="d-flex justify-content-around align-items-stretch">
+                    <a asp-action="Edit" asp-route-id="@item.Code"><i class="bi bi-pencil-fill text-warning"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.Code"><i class="bi bi-search"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Code"><i class="bi bi-trash-fill text-danger"></i></a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<EmilimaV2Web.Models.DocumentRequest>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Lista</h1>
+
+<p>
+    <a asp-action="Create" role="button" class="btn btn-success">Registrar</a>
+</p>
+    <table class="table" data-toggle="table" data-pagination="true" data-sort-order="asc" data-show-extended-pagination="true">
+    <thead>
+        <tr>
+            <th data-field="Id" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th data-field="Name" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th data-field="Description" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th data-field="CreationDate" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th data-field="StateId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.StateId)
+            </th>
+            <th data-field="UserId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th data-field="OrganicUnitId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.OrganicUnitId)
+            </th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganicUnit.Name)
+            </td>
+            <td>
+                <div class="d-flex justify-content-around align-items-stretch">
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-fill text-warning"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-search"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash-fill text-danger"></i></a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

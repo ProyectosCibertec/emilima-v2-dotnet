@@ -51,8 +51,8 @@ namespace EmilimaV2Web.Controllers
         // GET: DocumentRequests/Create
         public IActionResult Create()
         {
-            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id");
-            ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Id");
+            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Name");
+            ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Name");
             ViewData["UserId"] = new SelectList(_context.Users, "Username", "Username");
             return View();
         }
@@ -64,7 +64,7 @@ namespace EmilimaV2Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,CreationDate,StateId,UserId,OrganicUnitId")] DocumentRequest documentRequest)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(documentRequest);
                 await _context.SaveChangesAsync();
@@ -89,8 +89,8 @@ namespace EmilimaV2Web.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id", documentRequest.OrganicUnitId);
-            ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Id", documentRequest.StateId);
+            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Name", documentRequest.OrganicUnitId);
+            ViewData["StateId"] = new SelectList(_context.RequestStates, "Id", "Name", documentRequest.StateId);
             ViewData["UserId"] = new SelectList(_context.Users, "Username", "Username", documentRequest.UserId);
             return View(documentRequest);
         }
@@ -107,7 +107,7 @@ namespace EmilimaV2Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

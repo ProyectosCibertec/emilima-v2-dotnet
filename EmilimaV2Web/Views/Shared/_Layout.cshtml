@@ -24,13 +24,35 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" asp-area="" asp-controller="Home"
+                        <a class="nav-link@(
+                            HttpContextAccessor.HttpContext.Request.Path.ToString().Equals("/") ? " active" : ""
+                        )" aria-current="page" asp-area="" asp-controller="Home"
                             asp-action="Index">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link@(
+                            HttpContextAccessor.HttpContext.Request.Path.ToString().Contains("/Documents") ? " active" : ""
+                        )" aria-current="page" asp-area="" asp-controller="Documents"
+                            asp-action="Index">Documentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link@(
+                            HttpContextAccessor.HttpContext.Request.Path.ToString().Contains("/DocumentRequests") ? " active" : ""
+                        )" aria-current="page" asp-area="" asp-controller="DocumentRequests"
+                            asp-action="Index">Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link@(
+                            HttpContextAccessor.HttpContext.Request.Path.ToString().Contains("/DocumentalSeries") ? " active" : ""
+                        )" aria-current="page" asp-area="" asp-controller="DocumentalSeries"
+                            asp-action="Index">Series documentales</a>
                     </li>
                     @if (HttpContextAccessor.HttpContext.User.IsInRole("Administrador"))
                     {
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" asp-area="" asp-controller="Users"
+                                <a class="nav-link@(
+                            HttpContextAccessor.HttpContext.Request.Path.ToString().Contains("/Users") ? " active" : ""
+                        )" aria-current="page" asp-area="" asp-controller="Users"
                             asp-action="Index">Usuarios</a>
                         </li>
                     }

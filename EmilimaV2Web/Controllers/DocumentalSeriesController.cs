@@ -50,8 +50,8 @@ namespace EmilimaV2Web.Controllers
         // GET: DocumentalSeries/Create
         public IActionResult Create()
         {
-            ViewData["HierarchicalDependencyId"] = new SelectList(_context.HierarchicalDependencies, "Id", "Id");
-            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id");
+            ViewData["HierarchicalDependencyId"] = new SelectList(_context.HierarchicalDependencies, "Id", "Name");
+            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Name");
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace EmilimaV2Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Code,Name,HierarchicalDependencyId,OrganicUnitId,Definition,ServiceFrequency,NormativeScope,IsPublic,PhisicalFeatures,DocumentalSerieValue,YearsInManagementArchive,YearsInCentralArchive,ElaborationDate")] DocumentalSerie documentalSerie)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(documentalSerie);
                 await _context.SaveChangesAsync();
@@ -86,8 +86,8 @@ namespace EmilimaV2Web.Controllers
             {
                 return NotFound();
             }
-            ViewData["HierarchicalDependencyId"] = new SelectList(_context.HierarchicalDependencies, "Id", "Id", documentalSerie.HierarchicalDependencyId);
-            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Id", documentalSerie.OrganicUnitId);
+            ViewData["HierarchicalDependencyId"] = new SelectList(_context.HierarchicalDependencies, "Id", "Name", documentalSerie.HierarchicalDependencyId);
+            ViewData["OrganicUnitId"] = new SelectList(_context.OrganicUnits, "Id", "Name", documentalSerie.OrganicUnitId);
             return View(documentalSerie);
         }
 
@@ -103,7 +103,7 @@ namespace EmilimaV2Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

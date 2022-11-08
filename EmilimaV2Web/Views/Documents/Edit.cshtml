@@ -1,0 +1,67 @@
+﻿@model EmilimaV2Web.Models.Document
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+    <div>
+        <a asp-action="Index"><i class="bi bi-arrow-left-square-fill h3"></i></a>
+    </div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SerialNumber" />
+                <div class="form-group py-2">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+                <div class="form-group py-2">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+                <div class="form-group py-2">
+                <label asp-for="UploadDate" class="control-label"></label>
+                <input asp-for="UploadDate" class="form-control" />
+                <span asp-validation-for="UploadDate" class="text-danger"></span>
+            </div>
+                <div class="form-group py-2">
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+                <div class="form-group py-2">
+                <label asp-for="FileId" class="control-label"></label>
+                <select asp-for="FileId" class="form-control" asp-items="ViewBag.FileId"></select>
+                <span asp-validation-for="FileId" class="text-danger"></span>
+            </div>
+                <div class="form-group py-2">
+                <label asp-for="DocumentTypeId" class="control-label"></label>
+                <select asp-for="DocumentTypeId" class="form-control" asp-items="ViewBag.DocumentTypeId"></select>
+                <span asp-validation-for="DocumentTypeId" class="text-danger"></span>
+            </div>
+                <div class="form-group py-2">
+                <label asp-for="DocumentSerieId" class="control-label"></label>
+                <select asp-for="DocumentSerieId" class="form-control" asp-items="ViewBag.DocumentSerieId"></select>
+                <span asp-validation-for="DocumentSerieId" class="text-danger"></span>
+            </div>
+                <div class="form-group py-2">
+                <label asp-for="DocumentRequestId" class="control-label"></label>
+                <select asp-for="DocumentRequestId" class="form-control" asp-items="ViewBag.DocumentRequestId"></select>
+                <span asp-validation-for="DocumentRequestId" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <input type="submit" value="Editar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

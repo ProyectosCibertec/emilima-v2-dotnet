@@ -1,0 +1,85 @@
+﻿@model IEnumerable<EmilimaV2Web.Models.Document>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Lista</h1>
+
+<p>
+    <a asp-action="Create" role="button" class="btn btn-success">Registrar</a>
+</p>
+    <table class="table" data-toggle="table" data-pagination="true" data-sort-order="asc" data-show-extended-pagination="true">
+    <thead>
+        <tr>
+            <th data-field="SerialNumber" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.SerialNumber)
+            </th>
+            <th data-field="Name" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th data-field="Description" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th data-field="UploadDate" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.UploadDate)
+            </th>
+            <th data-field="CreationDate" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th data-field="FileId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.FileId)
+            </th>
+            <th data-field="DocumentTypeId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.DocumentTypeId)
+            </th>
+            <th data-field="DocumentSerieId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.DocumentSerieId)
+            </th>
+            <th data-field="DocumentRequestId" data-sortable="true" class="px-2">
+                @Html.DisplayNameFor(model => model.DocumentRequestId)
+            </th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.File.Filename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentSerie.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentRequest.Name)
+            </td>
+            <td>
+                <div class="d-flex justify-content-around align-items-stretch">
+                    <a asp-action="Edit" asp-route-id="@item.SerialNumber"><i class="bi bi-pencil-fill text-warning"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.SerialNumber"><i class="bi bi-search"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.SerialNumber"><i class="bi bi-trash-fill text-danger"></i></a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

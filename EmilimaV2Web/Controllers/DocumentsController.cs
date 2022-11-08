@@ -52,10 +52,10 @@ namespace EmilimaV2Web.Controllers
         // GET: Documents/Create
         public IActionResult Create()
         {
-            ViewData["DocumentRequestId"] = new SelectList(_context.DocumentRequests, "Id", "Id");
-            ViewData["DocumentSerieId"] = new SelectList(_context.DocumentalSeries, "Code", "Code");
-            ViewData["DocumentTypeId"] = new SelectList(_context.DocumentTypes, "Id", "Id");
-            ViewData["FileId"] = new SelectList(_context.Files, "Id", "Id");
+            ViewData["DocumentRequestId"] = new SelectList(_context.DocumentRequests, "Id", "Name");
+            ViewData["DocumentSerieId"] = new SelectList(_context.DocumentalSeries, "Code", "Name");
+            ViewData["DocumentTypeId"] = new SelectList(_context.DocumentTypes, "Id", "Name");
+            ViewData["FileId"] = new SelectList(_context.Files, "Id", "Filename");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace EmilimaV2Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("SerialNumber,Name,Description,UploadDate,CreationDate,FileId,DocumentTypeId,DocumentSerieId,DocumentRequestId")] Document document)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(document);
                 await _context.SaveChangesAsync();
@@ -92,10 +92,10 @@ namespace EmilimaV2Web.Controllers
             {
                 return NotFound();
             }
-            ViewData["DocumentRequestId"] = new SelectList(_context.DocumentRequests, "Id", "Id", document.DocumentRequestId);
-            ViewData["DocumentSerieId"] = new SelectList(_context.DocumentalSeries, "Code", "Code", document.DocumentSerieId);
-            ViewData["DocumentTypeId"] = new SelectList(_context.DocumentTypes, "Id", "Id", document.DocumentTypeId);
-            ViewData["FileId"] = new SelectList(_context.Files, "Id", "Id", document.FileId);
+            ViewData["DocumentRequestId"] = new SelectList(_context.DocumentRequests, "Id", "Name", document.DocumentRequestId);
+            ViewData["DocumentSerieId"] = new SelectList(_context.DocumentalSeries, "Code", "Name", document.DocumentSerieId);
+            ViewData["DocumentTypeId"] = new SelectList(_context.DocumentTypes, "Id", "Name", document.DocumentTypeId);
+            ViewData["FileId"] = new SelectList(_context.Files, "Id", "Filename", document.FileId);
             return View(document);
         }
 
@@ -111,7 +111,7 @@ namespace EmilimaV2Web.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

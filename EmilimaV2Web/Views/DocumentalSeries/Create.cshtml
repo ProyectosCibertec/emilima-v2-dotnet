@@ -1,0 +1,79 @@
+﻿@model EmilimaV2Web.Models.DocumentalSerie
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1>Crear</h1>
+
+    <div>
+        <a asp-action="Index"><i class="bi bi-arrow-left-square-fill h3"></i></a>
+    </div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group py-2">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="HierarchicalDependencyId" class="control-label"></label>
+                <select asp-for="HierarchicalDependencyId" class ="form-control" asp-items="ViewBag.HierarchicalDependencyId"></select>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="OrganicUnitId" class="control-label"></label>
+                <select asp-for="OrganicUnitId" class ="form-control" asp-items="ViewBag.OrganicUnitId"></select>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="Definition" class="control-label"></label>
+                <input asp-for="Definition" class="form-control" />
+                <span asp-validation-for="Definition" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="ServiceFrequency" class="control-label"></label>
+                <input asp-for="ServiceFrequency" class="form-control" />
+                <span asp-validation-for="ServiceFrequency" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="NormativeScope" class="control-label"></label>
+                <input asp-for="NormativeScope" class="form-control" />
+                <span asp-validation-for="NormativeScope" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="DocumentalSerieValue" class="control-label"></label>
+                <input asp-for="DocumentalSerieValue" class="form-control" />
+                <span asp-validation-for="DocumentalSerieValue" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="YearsInManagementArchive" class="control-label"></label>
+                <input asp-for="YearsInManagementArchive" class="form-control" />
+                <span asp-validation-for="YearsInManagementArchive" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="YearsInCentralArchive" class="control-label"></label>
+                <input asp-for="YearsInCentralArchive" class="form-control" />
+                <span asp-validation-for="YearsInCentralArchive" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="ElaborationDate" class="control-label"></label>
+                <input asp-for="ElaborationDate" class="form-control" />
+                <span asp-validation-for="ElaborationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,55 @@
+﻿@model EmilimaV2Web.Models.DocumentRequest
+
+@{
+    ViewData["Title"] = "Detalle";
+}
+
+<h1>Detalle</h1>
+
+<div>
+    <div>
+        <a asp-action="Index"><i class="bi bi-arrow-left-square-fill h3"></i></a>
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.OrganicUnit)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.OrganicUnit.Name)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.State.Name)
+        </dd>
+        <dt class = "col-sm-2 py-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10 py-2">
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+</div>
