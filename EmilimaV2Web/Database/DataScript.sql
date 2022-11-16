@@ -13,6 +13,8 @@ DELETE FROM [emilima].[document_type]
 GO
 DELETE FROM [emilima].[organic_unit]
 GO
+DELETE FROM [emilima].[document]
+GO
 
 INSERT INTO [emilima].[user_role]([name], [description]) VALUES ('Administrador', 'Usuario con permisos globales.')
 GO
@@ -103,4 +105,29 @@ GO
 INSERT INTO [emilima].[user]([username], [password], [email], [role_id], [position_id]) VALUES ('admin1', 'admin', 'admin@emilima.com.pe', 1, 1)
 GO
 INSERT INTO [emilima].[user]([username], [password], [email], [role_id], [position_id]) VALUES ('user', 'admin', 'admin@emilima.com.pe', 1, 1)
+GO
+
+INSERT INTO [emilima].[documental_serie]([code], [name], [hierarchical_dependency_id], [organic_unit_id], [definition], [service_frequency], [normative_scope], [is_public], [phisical_features], [documental_serie_value], [years_in_management_archive], [years_in_central_archive], [elaboration_date]) VALUES ('SERIE1', 'Serie documental 1', 1, 1, 'Serie documental de ejemplo', 'Cada 1 día', 'A', 1, 'En buen estado', 1, 2, 2, '2016-12-21 00:00:00.0000000');
+GO
+INSERT INTO [emilima].[documental_serie]([code], [name], [hierarchical_dependency_id], [organic_unit_id], [definition], [service_frequency], [normative_scope], [is_public], [phisical_features], [documental_serie_value], [years_in_management_archive], [years_in_central_archive], [elaboration_date]) VALUES ('SERIE2', 'Serie documental 2', 1, 1, 'Serie documental de ejemplo', 'Cada 1 día', 'B', 1, 'En buen estado', 1, 2, 2, '2016-12-21 00:00:00.0000000');
+GO
+
+INSERT INTO [emilima].[document]([name], [description], [upload_date], [creation_date], [file_id], [document_type_id], [document_serie_id], [document_request_id]) VALUES ('Documento1', 'El presente documento es una certificación', '2016-12-21 00:00:00.0000000', '2016-12-21 00:00:00.0000000', 'e2d96144-ef10-11ec-8ea0-0242ac120002', 1, 'SERIE1', 1);
+GO
+INSERT INTO [emilima].[document]([name], [description], [upload_date], [creation_date], [file_id], [document_type_id], [document_serie_id], [document_request_id]) VALUES ('Documento2', 'El presente documento es una certificación', '2016-12-21 00:00:00.0000000', '2016-12-21 00:00:00.0000000', 'e2d96144-ef10-11ec-8ea0-0242ac120002', 1, 'SERIE2', 1);
+GO
+
+SELECT * FROM [emilima].[user_role]
+GO
+SELECT * FROM [emilima].[request_state]
+GO
+SELECT * FROM [emilima].[file]
+GO
+SELECT * FROM [emilima].[hierarchical_dependency]
+GO
+SELECT * FROM [emilima].[document_type]
+GO
+SELECT * FROM [emilima].[organic_unit]
+GO
+SELECT * FROM [emilima].[document]
 GO

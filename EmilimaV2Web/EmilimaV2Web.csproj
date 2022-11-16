@@ -26,36 +26,4 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="CodeTemplates\Create.cshtml">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Create.tt</DependentUpon>
-    </Content>
-    <Content Update="CodeTemplates\MvcView\Create.cs.cshtml">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Create.cs.tt</DependentUpon>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="CodeTemplates\Create.tt">
-      <LastGenOutput>Create.cshtml</LastGenOutput>
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </None>
-    <None Update="CodeTemplates\MvcView\Create.cs.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Create.cs.cshtml</LastGenOutput>
-    </None>
-    <None Update="CodeTemplates\MvcView\Imports.include.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Imports.include.cs</LastGenOutput>
-    </None>
-    <None Update="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelMetadataFunctions.cs.include.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
 </Project>
