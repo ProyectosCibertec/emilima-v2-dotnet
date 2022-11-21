@@ -1,5 +1,4 @@
-﻿using System;
-using IO = System.IO;
+﻿using IO = System.IO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DocumentFiles.Controllers
@@ -16,18 +15,13 @@ namespace DocumentFiles.Controllers
         }
 
         [HttpGet("{filename}")]
-        public async Task<ActionResult<byte[]>> GetFile(string filename)
+        public IActionResult GetFile(string filename)
         {
             string path = Path.Combine(_configuration["FileStorage"], filename);
 
-            byte[] fileInBytes = await IO.File.ReadAllBytesAsync(path);
+            FileStream fileStream = new(path, FileMode.Open);
 
-            if (fileInBytes.Length == 0)
-            {
-                return NotFound();
-            }
-
-            return fileInBytes;
+            return new FileStreamResult(fileStream, "application/octet-stream");
         }
 
         [HttpPost]

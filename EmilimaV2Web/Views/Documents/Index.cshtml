@@ -37,7 +37,7 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a asp-action="Download" asp-route-id="@document.SerialNumber" style="color: black;">
+                                        <a asp-action="DownloadPdf" asp-controller="Files" asp-route-fileName="@document.File.Filename" style="color: black;" download>
                                             <i class="bi bi-download documents-list__item__download-button"
                                                 style="font-size: 2.5rem;"></i>
                                         </a>
