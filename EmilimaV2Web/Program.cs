@@ -21,9 +21,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 builder.Services.AddDbContext<EmilimaContext>(o =>
-{
-    o.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
-});
+ {
+     o.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+ });
 
 // builder.Services.AddDbContext<EmilimaContext>(options =>
 //         options.UseSqlServer("name=ConnectionStrings:Connection"));
