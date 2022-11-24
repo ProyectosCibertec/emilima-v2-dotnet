@@ -20,13 +20,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         o.LogoutPath = "/Logout/";
     });
 
-builder.Services.AddDbContext<EmilimaContext>(o =>
-{
-    o.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
-});
+// builder.Services.AddDbContext<EmilimaContext>(o =>
+// {
+//     o.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+// });
 
-// builder.Services.AddDbContext<EmilimaContext>(options =>
-//         options.UseSqlServer("name=ConnectionStrings:Connection"));
+builder.Services.AddDbContext<EmilimaContext>(options =>
+        options.UseSqlServer("name=ConnectionStrings:Connection"));
 
 builder.Services.AddHttpContextAccessor();
 
