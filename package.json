@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "description": "This is the next version of the previous project for Emilima with better implementation using .NET Core for cross-compatibility and forcing a jump to Microsoft technologies.",
   "main": "index.js",
+  "author": {
+    "name": "Wilmer Quispe",
+    "email": "wilmerquispecode@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Dennis Villagaray Gormas",
+      "email": "dennis.villagarayg@gmail.com"
+    }
+  ],
   "scripts": {
     "run:web-api": "cd DocumentFiles/ && dotnet run",
     "run:web-client": "cd EmilimaV2Web/ && dotnet run",
@@ -13,7 +23,6 @@
     "url": "git+https://github.com/ProyectosCibertec/emilima-v2-dotnet.git"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ProyectosCibertec/emilima-v2-dotnet/issues"
