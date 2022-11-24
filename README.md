@@ -46,6 +46,12 @@ But if you just want to build the web, use
 dotnet build
 ```
 
+## Start project in local
+``` bash	
+$ npm install
+$ npm run dev
+```
+
 ## Docker setup
 
 Soon or later son.
