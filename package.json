@@ -14,9 +14,11 @@
     }
   ],
   "scripts": {
+    "tailwind-install": "cd EmilimaV2Web/ && npm install",
     "run:web-api": "cd DocumentFiles/ && dotnet run",
     "run:web-client": "cd EmilimaV2Web/ && dotnet watch run",
-    "dev": "concurrently npm:run:*"
+    "install-all": "npm install & npm run tailwind-install",
+    "dev": "concurrently \"npm:taillwind-init\" npm:run:*"
   },
   "repository": {
     "type": "git",
