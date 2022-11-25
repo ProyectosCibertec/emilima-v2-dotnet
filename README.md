@@ -32,23 +32,16 @@ Note that \<Your server\> may be any of these options: `(local)`, `.` or `YOUR-S
 
 Now that you configured the project, create the database in order to get information from a data source in your local machine. Use the scripts `Script.sql` and `DataScript.sql` saved in `.\EmilimaV2Web\Database\` and execute them.
 
-### Build and run
+## Build and run
 
-Both processes can be executed using only
-
-``` bash
-dotnet run --project EmilimaV2Web
-```
-
-But if you just want to build the web, use
+### Install dependencies
 
 ``` bash
-dotnet build
+$ npm run install-all
 ```
 
-## Start project in local
+### Start project in local
 ``` bash	
-$ npm install
 $ npm run dev
 ```
 
